@@ -37,6 +37,16 @@
         <br>
         <code id="calendar-url">calendar.ics</code>
       </p>
+
+      <p class="mobile-note" id="mobile-note">
+        No celular, o Google Calendar pode abrir uma tela desktop. Use o botao Google Calendar para copiar a URL e adicione pelo computador em Configuracoes &gt; Adicionar agenda &gt; Por URL.
+      </p>
+
+      <section class="qr" aria-label="QR code para assinatura">
+        <h2>QR code da assinatura</h2>
+        <img id="qr-code" alt="QR code para assinar o calendario">
+        <p>Escaneie para abrir o link de assinatura no celular.</p>
+      </section>
     </main>
 
     <script>
@@ -49,6 +59,29 @@
         "https://calendar.google.com/calendar/u/0/r?cid=" + encodeURIComponent(webcalUrl);
       document.getElementById("outlook-link").href =
         "https://outlook.live.com/calendar/0/addcalendar?url=" + encodeURIComponent(feedUrl);
+      document.getElementById("qr-code").src =
+        "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" + encodeURIComponent(webcalUrl);
+
+      const isMobile =
+        window.matchMedia("(max-width: 700px)").matches ||
+        /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        const googleLink = document.getElementById("google-link");
+        document.getElementById("mobile-note").style.display = "block";
+        googleLink.textContent = "Copiar URL para Google Calendar";
+        googleLink.href = "#";
+        googleLink.addEventListener("click", async (event) => {
+          event.preventDefault();
+
+          try {
+            await navigator.clipboard.writeText(feedUrl);
+            alert("URL copiada. No Google Calendar, adicione uma agenda por URL e cole o link.");
+          } catch {
+            window.prompt("Copie a URL do calendario:", feedUrl);
+          }
+        });
+      }
     </script>
   </body>
 </html>
