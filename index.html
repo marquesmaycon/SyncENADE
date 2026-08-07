@@ -9,23 +9,23 @@
   <body>
     <main>
       <h1>Teste Sync ENADE</h1>
-      <p>Assine o calendario pelo link do Gist e confira se os eventos aparecem no calendario do usuario.</p>
+      <p>Assine o calendario pelo link publico e confira se os eventos aparecem no calendario do usuario.</p>
 
       <section class="actions" aria-label="Acoes de calendario">
-        <a class="primary" href="webcal://gist.githubusercontent.com/marquesmaycon/29b6a6dd72e04459c198ce4d50bc40ef/raw/6f9ec435318d5d179c23455b822374b0c29663b6/sync-enade.ics">
+        <a class="primary" id="webcal-link" href="calendar.ics">
           Assinar via webcal
         </a>
-        <a href="https://calendar.google.com/calendar/render?cid=https%3A%2F%2Fgist.githubusercontent.com%2Fmarquesmaycon%2F29b6a6dd72e04459c198ce4d50bc40ef%2Fraw%2F6f9ec435318d5d179c23455b822374b0c29663b6%2Fsync-enade.ics">
+        <a id="google-link" href="https://calendar.google.com/calendar/u/0/r/settings/addbyurl">
           Google Calendar
         </a>
-        <a href="https://outlook.live.com/calendar/0/addcalendar?url=https%3A%2F%2Fgist.githubusercontent.com%2Fmarquesmaycon%2F29b6a6dd72e04459c198ce4d50bc40ef%2Fraw%2F6f9ec435318d5d179c23455b822374b0c29663b6%2Fsync-enade.ics">
+        <a id="outlook-link" href="calendar.ics">
           Outlook
         </a>
-        <a href="https://gist.githubusercontent.com/marquesmaycon/29b6a6dd72e04459c198ce4d50bc40ef/raw/6f9ec435318d5d179c23455b822374b0c29663b6/sync-enade.ics">
-          Abrir raw ICS
-        </a>
         <a href="calendar.ics">
-          Abrir ICS local
+          Abrir ICS publico
+        </a>
+        <a href="https://gist.githubusercontent.com/marquesmaycon/29b6a6dd72e04459c198ce4d50bc40ef/raw/sync-enade.ics">
+          Abrir raw do Gist
         </a>
         <a href="https://gist.github.com/marquesmaycon/29b6a6dd72e04459c198ce4d50bc40ef">
           Ver Gist
@@ -33,10 +33,22 @@
       </section>
 
       <p class="url">
-        URL do calendario:
+        URL para adicionar manualmente no Google Calendar:
         <br>
-        <code>https://gist.githubusercontent.com/marquesmaycon/29b6a6dd72e04459c198ce4d50bc40ef/raw/6f9ec435318d5d179c23455b822374b0c29663b6/sync-enade.ics</code>
+        <code id="calendar-url">calendar.ics</code>
       </p>
     </main>
+
+    <script>
+      const feedUrl = new URL("calendar.ics", window.location.href).href;
+      const webcalUrl = feedUrl.replace(/^https?:\/\//, "webcal://");
+
+      document.getElementById("calendar-url").textContent = feedUrl;
+      document.getElementById("webcal-link").href = webcalUrl;
+      document.getElementById("google-link").href =
+        "https://calendar.google.com/calendar/u/0/r?cid=" + encodeURIComponent(webcalUrl);
+      document.getElementById("outlook-link").href =
+        "https://outlook.live.com/calendar/0/addcalendar?url=" + encodeURIComponent(feedUrl);
+    </script>
   </body>
 </html>
