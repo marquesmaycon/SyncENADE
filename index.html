@@ -3,13 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Teste Sync ENADE</title>
+    <title>Sync ENADE</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <main>
-      <h1>Teste Sync ENADE</h1>
-      <p>Assine o calendario pelo link publico e confira se os eventos aparecem no calendario do usuario.</p>
+      <p class="eyebrow">InovaDay Challenge</p>
+      <h1>Sync ENADE</h1>
+      <p class="intro">Assine o calendario pelo link publico e confira se os eventos aparecem no calendario do usuario.</p>
 
       <section class="actions" aria-label="Acoes de calendario">
         <a class="primary" id="apple-link" href="calendar.ics" target="_blank" rel="noopener">
@@ -29,8 +30,8 @@
         <code id="calendar-url">calendar.ics</code>
       </p>
 
-      <p class="mobile-note" id="mobile-note">
-        No celular, o Google Calendar pode abrir uma tela desktop. Se isso acontecer, copie a URL acima e adicione pelo computador em Configuracoes &gt; Adicionar agenda &gt; Por URL.
+      <p class="note">
+        O Google Calendar pode abrir uma tela web antes de confirmar a assinatura. Se o app nao reconhecer o link, use a URL publica acima em Configuracoes &gt; Adicionar agenda &gt; Por URL.
       </p>
     </main>
 
@@ -41,30 +42,9 @@
       document.getElementById("calendar-url").textContent = feedUrl;
       document.getElementById("apple-link").href = webcalUrl;
       document.getElementById("google-link").href =
-        "https://calendar.google.com/calendar/u/0/r?cid=" + encodeURIComponent(webcalUrl);
+        "https://calendar.google.com/calendar/u/0/r?cid=" + encodeURIComponent(feedUrl);
       document.getElementById("outlook-link").href =
         "https://outlook.live.com/calendar/0/addcalendar?url=" + encodeURIComponent(feedUrl);
-
-      const isMobile =
-        window.matchMedia("(max-width: 700px)").matches ||
-        /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-      if (isMobile) {
-        const googleLink = document.getElementById("google-link");
-        document.getElementById("mobile-note").style.display = "block";
-        googleLink.textContent = "Copiar URL para Google Calendar";
-        googleLink.href = "#";
-        googleLink.addEventListener("click", async (event) => {
-          event.preventDefault();
-
-          try {
-            await navigator.clipboard.writeText(feedUrl);
-            alert("URL copiada. No Google Calendar, adicione uma agenda por URL e cole o link.");
-          } catch {
-            window.prompt("Copie a URL do calendario:", feedUrl);
-          }
-        });
-      }
     </script>
   </body>
 </html>
