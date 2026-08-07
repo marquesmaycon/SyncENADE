@@ -12,41 +12,26 @@
       <p>Assine o calendario pelo link publico e confira se os eventos aparecem no calendario do usuario.</p>
 
       <section class="actions" aria-label="Acoes de calendario">
-        <a class="primary" id="webcal-link" href="calendar.ics">
-          Assinar via webcal
+        <a class="primary" id="apple-link" href="calendar.ics" target="_blank" rel="noopener">
+          Apple Calendar
         </a>
-        <a id="google-link" href="https://calendar.google.com/calendar/u/0/r/settings/addbyurl">
+        <a id="google-link" href="https://calendar.google.com/calendar/u/0/r/settings/addbyurl" target="_blank" rel="noopener">
           Google Calendar
         </a>
-        <a id="outlook-link" href="calendar.ics">
+        <a id="outlook-link" href="calendar.ics" target="_blank" rel="noopener">
           Outlook
-        </a>
-        <a href="calendar.ics">
-          Abrir ICS publico
-        </a>
-        <a href="https://gist.githubusercontent.com/marquesmaycon/29b6a6dd72e04459c198ce4d50bc40ef/raw/sync-enade.ics">
-          Abrir raw do Gist
-        </a>
-        <a href="https://gist.github.com/marquesmaycon/29b6a6dd72e04459c198ce4d50bc40ef">
-          Ver Gist
         </a>
       </section>
 
-      <p class="url">
-        URL para adicionar manualmente no Google Calendar:
+      <p class="manual">
+        Para assinar manualmente, copie este link e use a opcao de adicionar calendario por URL:
         <br>
         <code id="calendar-url">calendar.ics</code>
       </p>
 
       <p class="mobile-note" id="mobile-note">
-        No celular, o Google Calendar pode abrir uma tela desktop. Use o botao Google Calendar para copiar a URL e adicione pelo computador em Configuracoes &gt; Adicionar agenda &gt; Por URL.
+        No celular, o Google Calendar pode abrir uma tela desktop. Se isso acontecer, copie a URL acima e adicione pelo computador em Configuracoes &gt; Adicionar agenda &gt; Por URL.
       </p>
-
-      <section class="qr" aria-label="QR code para assinatura">
-        <h2>QR code da assinatura</h2>
-        <img id="qr-code" alt="QR code para assinar o calendario">
-        <p>Escaneie para abrir o link de assinatura no celular.</p>
-      </section>
     </main>
 
     <script>
@@ -54,13 +39,11 @@
       const webcalUrl = feedUrl.replace(/^https?:\/\//, "webcal://");
 
       document.getElementById("calendar-url").textContent = feedUrl;
-      document.getElementById("webcal-link").href = webcalUrl;
+      document.getElementById("apple-link").href = webcalUrl;
       document.getElementById("google-link").href =
         "https://calendar.google.com/calendar/u/0/r?cid=" + encodeURIComponent(webcalUrl);
       document.getElementById("outlook-link").href =
         "https://outlook.live.com/calendar/0/addcalendar?url=" + encodeURIComponent(feedUrl);
-      document.getElementById("qr-code").src =
-        "https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=" + encodeURIComponent(webcalUrl);
 
       const isMobile =
         window.matchMedia("(max-width: 700px)").matches ||
