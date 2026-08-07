@@ -48,8 +48,8 @@ DTSTAMP:20260807T120000Z
 DTSTART;TZID=America/Sao_Paulo:20260813T200000
 DTEND;TZID=America/Sao_Paulo:20260813T210000
 SUMMARY:Prazo - Projeto Integrador
-DESCRIPTION:Prazo fictício utilizado para testar atualizações de eventos
-  através de um calendário ICS assinado.
+DESCRIPTION:Prazo fictício utilizado para testar atualizações de
+ eventos através de um calendário ICS assinado.
 LOCATION:Ambiente Virtual de Aprendizagem
 STATUS:CONFIRMED
 SEQUENCE:0

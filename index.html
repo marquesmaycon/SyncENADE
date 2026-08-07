@@ -30,21 +30,50 @@
         <code id="calendar-url">calendar.ics</code>
       </p>
 
+      <p class="status" id="google-status" aria-live="polite"></p>
+
       <p class="note">
-        O Google Calendar pode abrir uma tela web antes de confirmar a assinatura. Se o app nao reconhecer o link, use a URL publica acima em Configuracoes &gt; Adicionar agenda &gt; Por URL.
+        O Google Calendar pode rejeitar links diretos de assinatura. O botao abre a tela correta e copia a URL publica para colar em Configuracoes &gt; Adicionar agenda &gt; Por URL.
       </p>
     </main>
 
     <script>
       const feedUrl = new URL("calendar.ics", window.location.href).href;
       const webcalUrl = feedUrl.replace(/^https?:\/\//, "webcal://");
+      const googleSettingsUrl = "https://calendar.google.com/calendar/u/0/r/settings/addbyurl";
 
       document.getElementById("calendar-url").textContent = feedUrl;
       document.getElementById("apple-link").href = webcalUrl;
-      document.getElementById("google-link").href =
-        "https://calendar.google.com/calendar/u/0/r?cid=" + encodeURIComponent(feedUrl);
       document.getElementById("outlook-link").href =
         "https://outlook.live.com/calendar/0/addcalendar?url=" + encodeURIComponent(feedUrl);
+
+      const googleLink = document.getElementById("google-link");
+      const googleStatus = document.getElementById("google-status");
+
+      googleLink.href = googleSettingsUrl;
+      googleLink.addEventListener("click", async (event) => {
+        event.preventDefault();
+
+        if (!/^https:\/\//.test(feedUrl)) {
+          googleStatus.textContent =
+            "Publique esta pagina em HTTPS antes de adicionar no Google Calendar.";
+          return;
+        }
+
+        const copyPromise = navigator.clipboard?.writeText
+          ? navigator.clipboard.writeText(feedUrl)
+          : Promise.reject();
+        window.open(googleSettingsUrl, "_blank", "noopener");
+
+        try {
+          await copyPromise;
+          googleStatus.textContent =
+            "URL copiada. Cole no campo Por URL do Google Calendar.";
+        } catch {
+          googleStatus.textContent =
+            "Copie a URL exibida abaixo e cole no campo Por URL do Google Calendar.";
+        }
+      });
     </script>
   </body>
 </html>
