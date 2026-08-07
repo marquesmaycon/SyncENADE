@@ -13,65 +13,46 @@
       <p class="intro">Assine o calendario pelo link publico e confira se os eventos aparecem no calendario do usuario.</p>
 
       <section class="actions" aria-label="Acoes de calendario">
-        <a class="primary" id="apple-link" href="calendar.ics" target="_blank" rel="noopener">
+        <a id="apple-link" href="calendar.ics" target="_blank" rel="noopener">
           Apple Calendar
         </a>
-        <a id="google-link" href="https://calendar.google.com/calendar/u/0/r/settings/addbyurl" target="_blank" rel="noopener">
+        <a id="google-direct-link" href="https://calendar.google.com/calendar/render?cid=calendar.ics" target="_blank" rel="noopener">
           Google Calendar
         </a>
         <a id="outlook-link" href="calendar.ics" target="_blank" rel="noopener">
           Outlook
         </a>
+        <button type="button" id="copy-link">
+          Copiar URL do calendario
+        </button>
       </section>
 
       <p class="manual">
-        Para assinar manualmente, copie este link e use a opcao de adicionar calendario por URL:
-        <br>
         <code id="calendar-url">calendar.ics</code>
       </p>
 
-      <p class="status" id="google-status" aria-live="polite"></p>
-
-      <p class="note">
-        O Google Calendar pode rejeitar links diretos de assinatura. O botao abre a tela correta e copia a URL publica para colar em Configuracoes &gt; Adicionar agenda &gt; Por URL.
-      </p>
+      <p class="status" id="copy-status" aria-live="polite"></p>
     </main>
 
     <script>
       const feedUrl = new URL("calendar.ics", window.location.href).href;
       const webcalUrl = feedUrl.replace(/^https?:\/\//, "webcal://");
-      const googleSettingsUrl = "https://calendar.google.com/calendar/u/0/r/settings/addbyurl";
+      const googleDirectUrl =
+        "https://calendar.google.com/calendar/render?cid=" + encodeURIComponent(webcalUrl);
 
       document.getElementById("calendar-url").textContent = feedUrl;
       document.getElementById("apple-link").href = webcalUrl;
+      document.getElementById("google-direct-link").href = googleDirectUrl;
       document.getElementById("outlook-link").href =
         "https://outlook.live.com/calendar/0/addcalendar?url=" + encodeURIComponent(feedUrl);
 
-      const googleLink = document.getElementById("google-link");
-      const googleStatus = document.getElementById("google-status");
-
-      googleLink.href = googleSettingsUrl;
-      googleLink.addEventListener("click", async (event) => {
-        event.preventDefault();
-
-        if (!/^https:\/\//.test(feedUrl)) {
-          googleStatus.textContent =
-            "Publique esta pagina em HTTPS antes de adicionar no Google Calendar.";
-          return;
-        }
-
-        const copyPromise = navigator.clipboard?.writeText
-          ? navigator.clipboard.writeText(feedUrl)
-          : Promise.reject();
-        window.open(googleSettingsUrl, "_blank", "noopener");
-
+      document.getElementById("copy-link").addEventListener("click", async () => {
         try {
-          await copyPromise;
-          googleStatus.textContent =
-            "URL copiada. Cole no campo Por URL do Google Calendar.";
+          await navigator.clipboard.writeText(feedUrl);
+          document.getElementById("copy-status").textContent = "URL copiada.";
         } catch {
-          googleStatus.textContent =
-            "Copie a URL exibida abaixo e cole no campo Por URL do Google Calendar.";
+          document.getElementById("copy-status").textContent =
+            "Copie a URL exibida acima.";
         }
       });
     </script>

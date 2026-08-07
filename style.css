@@ -75,53 +75,43 @@ p {
   margin-bottom: 20px;
 }
 
-a {
+a,
+button {
   display: block;
+  width: 100%;
   min-height: 48px;
   padding: 14px 16px;
   border: 1px solid rgba(125, 211, 252, 0.28);
   border-radius: 6px;
   color: var(--text);
+  font: inherit;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
   background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease;
 }
 
 a:hover,
-a:focus {
+a:focus,
+button:hover,
+button:focus {
   border-color: var(--cyan);
   outline: none;
   transform: translateY(-1px);
   background: rgba(52, 213, 255, 0.1);
 }
 
-a.primary {
-  color: #03111d;
-  border-color: transparent;
-  background: linear-gradient(135deg, var(--cyan), var(--blue) 58%, var(--violet));
-}
-
 .manual {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: var(--muted);
   font-size: 14px;
-}
-
-.note {
-  margin-bottom: 0;
-  padding: 12px;
-  border: 1px solid rgba(125, 211, 252, 0.2);
-  border-radius: 6px;
-  color: var(--muted);
-  font-size: 14px;
-  background: rgba(255, 255, 255, 0.05);
 }
 
 .status {
   min-height: 21px;
-  margin-bottom: 12px;
+  margin-bottom: 0;
   color: var(--lime);
   font-size: 14px;
 }
