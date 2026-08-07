@@ -1,0 +1,48 @@
+name: Sync calendar.ics to Gist
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - calendar.ics
+  workflow_dispatch:
+
+jobs:
+  sync-gist:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update Gist file
+        env:
+          GIST_ID: ${{ secrets.CALENDAR_GIST_ID }}
+          GIST_TOKEN: ${{ secrets.CALENDAR_GIST_TOKEN }}
+          GIST_FILENAME: calendar.ics
+        run: |
+          test -n "$GIST_ID"
+          test -n "$GIST_TOKEN"
+
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+
+          filename = os.environ["GIST_FILENAME"]
+          content = Path(filename).read_text(encoding="utf-8")
+          payload = {"files": {filename: {"content": content}}}
+          Path("gist-payload.json").write_text(
+              json.dumps(payload, ensure_ascii=False),
+              encoding="utf-8",
+          )
+          PY
+
+          curl --fail-with-body \
+            --request PATCH \
+            --header "Accept: application/vnd.github+json" \
+            --header "Authorization: Bearer $GIST_TOKEN" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            --data @gist-payload.json \
+            "https://api.github.com/gists/$GIST_ID"

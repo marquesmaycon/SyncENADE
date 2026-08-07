@@ -17,6 +17,28 @@ O arquivo principal é `calendar.ics`, que deve ser publicado em um GitHub Gist 
 
 Use uma Raw URL que continue apontando para a versão atual do Gist. Evite URLs presas exclusivamente a uma revisão específica se isso impedir que alterações futuras sejam percebidas pelos calendários assinantes.
 
+## Como automatizar a atualização do Gist
+
+O repositório inclui a workflow `.github/workflows/sync-calendar-gist.yml`, que atualiza o arquivo `calendar.ics` no Gist sempre que houver push na branch `main` alterando esse arquivo.
+
+Para ativar:
+
+1. Crie um token em <https://github.com/settings/tokens> com permissão para editar Gists.
+   - Fine-grained token: habilite permissão de Gists, se disponível para sua conta.
+   - Classic token: marque o escopo `gist`.
+2. No repositório, abra `Settings` > `Secrets and variables` > `Actions`.
+3. Crie o secret `CALENDAR_GIST_TOKEN` com o token criado.
+4. Crie o secret `CALENDAR_GIST_ID` com o ID do Gist.
+
+O ID do Gist é a parte final da URL. Exemplo:
+
+```text
+https://gist.github.com/seu-usuario/abc123def456
+                                ^^^^^^^^^^^^^
+```
+
+Depois disso, qualquer alteração em `calendar.ics` enviada para `main` será publicada automaticamente no Gist.
+
 ## Como testar
 
 Importar arquivo ICS ≠ assinar calendário ICS.
