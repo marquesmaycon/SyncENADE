@@ -17,15 +17,15 @@ END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
 UID:inovaday-deadline-001@mvp.local
-DTSTAMP:20260807T120000Z
-DTSTART;TZID=America/Sao_Paulo:20260811T190000
-DTEND;TZID=America/Sao_Paulo:20260811T200000
+DTSTAMP:20260819T011900Z
+DTSTART;TZID=America/Sao_Paulo:20260819T190000
+DTEND;TZID=America/Sao_Paulo:20260819T200000
 SUMMARY:Prazo - Atividade de Desenvolvimento Web
 DESCRIPTION:Prazo fictício utilizado para validar a sincronização
  do calendário acadêmico.
 LOCATION:Ambiente Virtual de Aprendizagem
 STATUS:CONFIRMED
-SEQUENCE:0
+SEQUENCE:1
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Lembrete: prazo acadêmico em 7 dias
@@ -41,18 +41,23 @@ ACTION:DISPLAY
 DESCRIPTION:Lembrete: prazo acadêmico em 2 horas
 TRIGGER:-PT2H
 END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Lembrete: prazo academico em 10 minutos
+TRIGGER:-PT10M
+END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:inovaday-deadline-002@mvp.local
-DTSTAMP:20260807T120000Z
-DTSTART;TZID=America/Sao_Paulo:20260813T200000
-DTEND;TZID=America/Sao_Paulo:20260813T210000
+DTSTAMP:20260819T011900Z
+DTSTART;TZID=America/Sao_Paulo:20260821T200000
+DTEND;TZID=America/Sao_Paulo:20260821T210000
 SUMMARY:Prazo - Projeto Integrador
 DESCRIPTION:Prazo fictício utilizado para testar atualizações de
  eventos através de um calendário ICS assinado.
 LOCATION:Ambiente Virtual de Aprendizagem
 STATUS:CONFIRMED
-SEQUENCE:0
+SEQUENCE:1
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Lembrete: prazo acadêmico em 7 dias
@@ -68,18 +73,23 @@ ACTION:DISPLAY
 DESCRIPTION:Lembrete: prazo acadêmico em 2 horas
 TRIGGER:-PT2H
 END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Lembrete: prazo academico em 10 minutos
+TRIGGER:-PT10M
+END:VALARM
 END:VEVENT
 BEGIN:VEVENT
 UID:inovaday-deadline-003@mvp.local
-DTSTAMP:20260807T120000Z
-DTSTART;TZID=America/Sao_Paulo:20260815T140000
-DTEND;TZID=America/Sao_Paulo:20260815T150000
+DTSTAMP:20260819T011900Z
+DTSTART;TZID=America/Sao_Paulo:20260822T140000
+DTEND;TZID=America/Sao_Paulo:20260822T150000
 SUMMARY:Prazo - Avaliação Online
 DESCRIPTION:Evento fictício utilizado para validar compatibilidade entre
   Google Calendar\, Outlook e Apple Calendar.
 LOCATION:Ambiente Virtual de Aprendizagem
 STATUS:CONFIRMED
-SEQUENCE:0
+SEQUENCE:1
 BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Lembrete: prazo acadêmico em 7 dias
@@ -94,6 +104,11 @@ BEGIN:VALARM
 ACTION:DISPLAY
 DESCRIPTION:Lembrete: prazo acadêmico em 2 horas
 TRIGGER:-PT2H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Lembrete: prazo academico em 10 minutos
+TRIGGER:-PT10M
 END:VALARM
 END:VEVENT
 END:VCALENDAR
