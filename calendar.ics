@@ -16,99 +16,20 @@ DTSTART:19700101T000000
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:inovaday-deadline-001@mvp.local
-DTSTAMP:20260819T011900Z
-DTSTART;TZID=America/Sao_Paulo:20260914T190000
-DTEND;TZID=America/Sao_Paulo:20260914T200000
-SUMMARY:Prazo - Atividade de Desenvolvimento Web
-DESCRIPTION:Prazo fictício utilizado para validar a sincronização
- do calendário acadêmico.
+UID:inovaday-prova-substitutiva-001@mvp.local
+DTSTAMP:20260929T120000Z
+DTSTART;TZID=America/Sao_Paulo:20261008T000000
+DTEND;TZID=America/Sao_Paulo:20261014T235900
+SUMMARY:Realização da Prova Substitutiva - [Sync Enade]
+DESCRIPTION:Evento fictício utilizado para validar a sincronização do
+  calendário acadêmico.
 LOCATION:Ambiente Virtual de Aprendizagem
 STATUS:CONFIRMED
-SEQUENCE:1
+SEQUENCE:0
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Lembrete: prazo acadêmico em 7 dias
-TRIGGER:-P7D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Lembrete: prazo acadêmico amanhã
-TRIGGER:-P1D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Lembrete: prazo acadêmico em 2 horas
-TRIGGER:-PT2H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Lembrete: prazo academico em 10 minutos
-TRIGGER:-PT10M
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:inovaday-deadline-002@mvp.local
-DTSTAMP:20260819T011900Z
-DTSTART;TZID=America/Sao_Paulo:20260916T200000
-DTEND;TZID=America/Sao_Paulo:20260916T210000
-SUMMARY:Prazo - Projeto Integrador
-DESCRIPTION:Prazo fictício utilizado para testar atualizações de
- eventos através de um calendário ICS assinado.
-LOCATION:Ambiente Virtual de Aprendizagem
-STATUS:CONFIRMED
-SEQUENCE:1
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Lembrete: prazo acadêmico em 7 dias
-TRIGGER:-P7D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Lembrete: prazo acadêmico amanhã
-TRIGGER:-P1D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Lembrete: prazo acadêmico em 2 horas
-TRIGGER:-PT2H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Lembrete: prazo academico em 10 minutos
-TRIGGER:-PT10M
-END:VALARM
-END:VEVENT
-BEGIN:VEVENT
-UID:inovaday-deadline-003@mvp.local
-DTSTAMP:20260819T011900Z
-DTSTART;TZID=America/Sao_Paulo:20260918T140000
-DTEND;TZID=America/Sao_Paulo:20260918T150000
-SUMMARY:Prazo - Avaliação Online
-DESCRIPTION:Evento fictício utilizado para validar compatibilidade entre
-  Google Calendar\, Outlook e Apple Calendar.
-LOCATION:Ambiente Virtual de Aprendizagem
-STATUS:CONFIRMED
-SEQUENCE:1
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Lembrete: prazo acadêmico em 7 dias
-TRIGGER:-P7D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Lembrete: prazo acadêmico amanhã
-TRIGGER:-P1D
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Lembrete: prazo acadêmico em 2 horas
-TRIGGER:-PT2H
-END:VALARM
-BEGIN:VALARM
-ACTION:DISPLAY
-DESCRIPTION:Lembrete: prazo academico em 10 minutos
-TRIGGER:-PT10M
+DESCRIPTION:Lembrete: Prova Substitutiva em 12 horas
+TRIGGER:-PT12H
 END:VALARM
 END:VEVENT
 END:VCALENDAR
