@@ -4,12 +4,12 @@
 
 Este MVP valida a assinatura de um calendário acadêmico remoto via feed iCalendar (`.ics`). A ideia é confirmar se Google Calendar, Outlook e Apple Calendar conseguem adicionar o calendário por URL, exibir eventos, receber alterações posteriores e lidar com múltiplos lembretes.
 
-O arquivo principal é `calendar.ics`, que deve ser publicado em um GitHub Gist público e assinado pelos clientes de calendário pela URL Raw.
+O arquivo principal é `syncenade-prototipo.ics`, que deve ser publicado em um GitHub Gist público e assinado pelos clientes de calendário pela URL Raw.
 
 ## Como publicar no GitHub Gist
 
 1. Crie um Gist público em <https://gist.github.com/>.
-2. Adicione o arquivo `calendar.ics`.
+2. Adicione o arquivo `syncenade-prototipo.ics`.
 3. Salve o Gist.
 4. Abra o arquivo no Gist e clique em `Raw`.
 5. Copie a Raw URL.
@@ -19,7 +19,7 @@ Use uma Raw URL que continue apontando para a versão atual do Gist. Evite URLs 
 
 ## Como automatizar a atualização do Gist
 
-O repositório inclui a workflow `.github/workflows/sync-calendar-gist.yml`, que atualiza o arquivo `calendar.ics` no Gist sempre que houver push na branch `main` alterando esse arquivo.
+O repositório inclui a workflow `.github/workflows/sync-calendar-gist.yml`, que atualiza o arquivo `syncenade-prototipo.ics` no Gist sempre que houver push na branch `main` alterando esse arquivo.
 
 Para ativar:
 
@@ -37,7 +37,7 @@ https://gist.github.com/seu-usuario/abc123def456
                                 ^^^^^^^^^^^^^
 ```
 
-Depois disso, qualquer alteração em `calendar.ics` enviada para `main` será publicada automaticamente no Gist.
+Depois disso, qualquer alteração em `syncenade-prototipo.ics` enviada para `main` será publicada automaticamente no Gist.
 
 ## Como testar
 
@@ -49,21 +49,21 @@ Importar cria uma cópia estática dos eventos. Para este MVP, o teste precisa s
 
 1. Abra o Google Calendar no navegador.
 2. Em `Outras agendas`, escolha adicionar calendário por URL.
-3. Cole a Raw URL do `calendar.ics`.
+3. Cole a Raw URL do `syncenade-prototipo.ics`.
 4. Confirme se o calendário foi adicionado e se os 3 eventos aparecem.
 
 ### Outlook
 
 1. Abra o Outlook Calendar.
 2. Escolha adicionar calendário pela internet ou por assinatura da Web.
-3. Cole a Raw URL do `calendar.ics`.
+3. Cole a Raw URL do `syncenade-prototipo.ics`.
 4. Confirme se o calendário foi adicionado e se os 3 eventos aparecem.
 
 ### Apple Calendar
 
 1. Abra o Apple Calendar.
 2. Use a opção de nova assinatura de calendário.
-3. Cole a Raw URL do `calendar.ics`.
+3. Cole a Raw URL do `syncenade-prototipo.ics`.
 4. Confirme se o calendário foi adicionado e se os 3 eventos aparecem.
 
 ## Matriz de testes
@@ -124,7 +124,7 @@ O `UID` nunca deve mudar ao editar um evento existente. Ele é a identidade perm
 
 ## Teste de remoção
 
-Depois dos testes iniciais, remova um dos blocos `VEVENT` do arquivo `calendar.ics`, salve novamente no Gist e verifique se os calendários assinantes eventualmente removem o evento localmente.
+Depois dos testes iniciais, remova um dos blocos `VEVENT` do arquivo `syncenade-prototipo.ics`, salve novamente no Gist e verifique se os calendários assinantes eventualmente removem o evento localmente.
 
 ## Limitações que queremos validar
 

@@ -1,9 +1,11 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//MVP Inova Day//Calendario Academico ICS//PT-BR
+PRODID:-//SyncENADE//Prototipo ICS//PT-BR
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-X-WR-CALNAME:Prazos Acadêmicos - MVP Inova Day
+NAME:SyncENADE - Protótipo
+X-WR-CALNAME:SyncENADE - Protótipo
+X-WR-RELCALID:syncenade-prototipo@syncenade.local
 X-WR-TIMEZONE:America/Sao_Paulo
 BEGIN:VTIMEZONE
 TZID:America/Sao_Paulo
@@ -16,7 +18,7 @@ DTSTART:19700101T000000
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:inovaday-prova-substitutiva-001@mvp.local
+UID:syncenade-prototipo-prova-substitutiva-001@syncenade.local
 DTSTAMP:20260929T120000Z
 DTSTART;TZID=America/Sao_Paulo:20261008T000000
 DTEND;TZID=America/Sao_Paulo:20261014T235900

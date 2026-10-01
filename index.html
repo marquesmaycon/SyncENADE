@@ -13,13 +13,13 @@
       <p class="intro">Assine o calendário pelo link público e confira se o evento aparece no calendário do usuário.</p>
 
       <section class="actions" aria-label="Ações de calendário">
-        <a id="apple-link" href="calendar.ics" target="_blank" rel="noopener">
+        <a id="apple-link" href="syncenade-prototipo.ics" target="_blank" rel="noopener">
           Apple Calendar
         </a>
-        <a id="google-direct-link" href="https://calendar.google.com/calendar/render?cid=calendar.ics" target="_blank" rel="noopener">
+        <a id="google-direct-link" href="https://calendar.google.com/calendar/render?cid=syncenade-prototipo.ics" target="_blank" rel="noopener">
           Google Calendar
         </a>
-        <a id="outlook-link" href="calendar.ics" target="_blank" rel="noopener">
+        <a id="outlook-link" href="syncenade-prototipo.ics" target="_blank" rel="noopener">
           Outlook
         </a>
         <button type="button" id="copy-link">
@@ -28,14 +28,14 @@
       </section>
 
       <p class="manual">
-        <code id="calendar-url">calendar.ics</code>
+        <code id="calendar-url">syncenade-prototipo.ics</code>
       </p>
 
       <p class="status" id="copy-status" aria-live="polite"></p>
     </main>
 
     <script>
-      const feedUrl = new URL("calendar.ics", window.location.href).href;
+      const feedUrl = new URL("syncenade-prototipo.ics", window.location.href).href;
       const webcalUrl = feedUrl.replace(/^https?:\/\//, "webcal://");
       const googleDirectUrl =
         "https://calendar.google.com/calendar/render?cid=" + encodeURIComponent(webcalUrl);

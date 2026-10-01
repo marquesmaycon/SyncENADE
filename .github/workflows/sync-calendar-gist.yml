@@ -1,11 +1,11 @@
-name: Sync calendar.ics to Gist
+name: Sync syncenade-prototipo.ics to Gist
 
 on:
   push:
     branches:
       - main
     paths:
-      - calendar.ics
+      - syncenade-prototipo.ics
   workflow_dispatch:
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
         env:
           GIST_ID: ${{ secrets.CALENDAR_GIST_ID }}
           GIST_TOKEN: ${{ secrets.CALENDAR_GIST_TOKEN }}
-          GIST_FILENAME: calendar.ics
+          GIST_FILENAME: syncenade-prototipo.ics
         run: |
           test -n "$GIST_ID"
           test -n "$GIST_TOKEN"
