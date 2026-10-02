@@ -3,17 +3,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sync ENADE | Unicive</title>
+    <title>Sync Enade | Unicive</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <img class="logo" src="assets/ideaton-logo.svg" alt="Logo Ideaton InovaDay">
     <main>
-      <div class="brand">
-        <img src="assets/LOGOMARCA-UNICIVE.webp" alt="Unicive">
-      </div>
-      <h1>Sync ENADE</h1>
-      <p class="intro">Todas as datas do ENADE no seu calendário, sempre atualizadas.</p>
+      <h1>Sync Enade</h1>
+      <p class="intro">Todas as datas do Enade no seu calendário, sempre atualizadas.</p>
 
       <p class="label" id="actions-label">Escolha seu calendário:</p>
       <section class="actions" aria-labelledby="actions-label">
@@ -39,6 +36,10 @@
 
       <p class="status" id="copy-status" aria-live="polite"></p>
     </main>
+
+    <footer class="brand">
+      <img src="assets/LOGOMARCA-UNICIVE.webp" alt="Unicive">
+    </footer>
 
     <script>
       const feedUrl = new URL("calendario-enade.ics", window.location.href).href;
