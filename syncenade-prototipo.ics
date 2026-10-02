@@ -3,10 +3,12 @@ VERSION:2.0
 PRODID:-//SyncENADE//Prototipo ICS//PT-BR
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
-NAME:SyncENADE - Protótipo
-X-WR-CALNAME:SyncENADE - Protótipo
+NAME:Sync ENADE 2026
+X-WR-CALNAME:Sync ENADE 2026
 X-WR-RELCALID:syncenade-prototipo@syncenade.local
 X-WR-TIMEZONE:America/Sao_Paulo
+REFRESH-INTERVAL;VALUE=DURATION:PT12H
+X-PUBLISHED-TTL:PT12H
 BEGIN:VTIMEZONE
 TZID:America/Sao_Paulo
 X-LIC-LOCATION:America/Sao_Paulo
@@ -18,20 +20,96 @@ DTSTART:19700101T000000
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:syncenade-prototipo-prova-substitutiva-001@syncenade.local
-DTSTAMP:20260929T120000Z
-DTSTART;TZID=America/Sao_Paulo:20261008T000000
-DTEND;TZID=America/Sao_Paulo:20261014T235900
-SUMMARY:Realização da Prova Substitutiva - [Sync Enade]
-DESCRIPTION:Evento fictício utilizado para validar a sincronização do
-  calendário acadêmico.
-LOCATION:Ambiente Virtual de Aprendizagem
+UID:questionario-enade-2026@syncenade
+DTSTAMP:20261002T120000Z
+DTSTART;TZID=America/Sao_Paulo:20261009T090000
+DTEND;TZID=America/Sao_Paulo:20261009T093000
+SUMMARY:📝 ENADE 2026 – Prazo final: Questionário do Estudante
+LOCATION:Sistema Enade (Inep) – enade.inep.gov.br
+URL:https://enade.inep.gov.br
+DESCRIPTION:⚠️ ETAPA OBRIGATÓRIA – prazo final hoje até 23:59 (hor
+ ário de Brasília).\nSem o questionário preenchido\, você fica IRREGULA
+ R no ENADE e pode ter problemas para colar grau e emitir o diploma.\n\n✅
+  CHECKLIST\n☐ Acessar o Sistema Enade com login gov.br\n☐ Conferir seu
+ s dados cadastrais\n☐ Responder o Questionário do Estudante (leva cerca
+  de 20 a 30 min)\n☐ Conferir o comprovante de envio\n☐ Anotar o local 
+ de prova\n\n🔗 LINKS\n- Sistema Enade (Inep): https://enade.inep.gov.br\
+ n- Passo a passo em vídeo: [LINK VÍDEO]\n- Cronograma completo do ENADE 
+ 2026: [LINK CRONOGRAMA]\n\n💬 PRECISA DE AJUDA?\n- WhatsApp da Central d
+ o Aluno: [NÚMERO]\n- E-mail: [E-MAIL]\n- Atendimento: [HORÁRIO DE ATENDI
+ MENTO]\n\n📅 PRÓXIMA ETAPA\nProva do ENADE – 11/10/2026\, às 08:00. 
+ Já está na sua agenda.\n\n—\nSync ENADE | Datas conforme cronograma of
+ icial do Inep.\nAtualizado em 06/10/2026. Se o Inep alterar alguma data\, 
+ este evento é atualizado automaticamente.
 STATUS:CONFIRMED
+TRANSP:OPAQUE
 SEQUENCE:0
+COLOR:red
 BEGIN:VALARM
 ACTION:DISPLAY
-DESCRIPTION:Lembrete: Prova Substitutiva em 12 horas
-TRIGGER:-PT12H
+DESCRIPTION:ENADE 2026: faltam 7 dias para o prazo final do Questionário d
+ o Estudante
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ENADE 2026: amanhã é o prazo final do Questionário do Estuda
+ nte
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ENADE 2026: hoje é o prazo final do Questionário do Estudante
+  (até 23:59)
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:prova-enade-2026@syncenade
+DTSTAMP:20261002T120000Z
+DTSTART;TZID=America/Sao_Paulo:20261011T080000
+DTEND;TZID=America/Sao_Paulo:20261011T140000
+SUMMARY:🎓 ENADE 2026 – Dia da prova
+LOCATION:Unicive\, Av. Advogado Horácio Raccanello Filho\, 5950 - Zona 07\
+ , Maringá - PR\, 87020-035
+URL:https://enade.inep.gov.br
+DESCRIPTION:⚠️ PROVA OBRIGATÓRIA – sua presença é necessária para
+  ficar REGULAR no ENADE.\nPortões abrem às 08:00 e FECHAM às 09:00 (hor
+ ário de Brasília). Depois disso\, não é permitida a entrada.\n\n✅ CH
+ ECKLIST – NA VÉSPERA\n☐ Conferir o local de prova no Cartão de Confi
+ rmação de Inscrição\n☐ Planejar o trajeto e chegar com antecedência
+ \n☐ Separar documento oficial com foto (original)\n☐ Separar caneta es
+ ferográfica de tinta preta\, de material transparente\n\n✅ CHECKLIST 
+ – NO DIA\n☐ Sair de casa com folga para o trânsito\n☐ Levar documen
+ to e caneta\n☐ Desligar o celular ao entrar na sala\n\n🔗 LINKS\n- Car
+ tão de Confirmação de Inscrição (Sistema Enade): https://enade.inep.g
+ ov.br\n- Como chegar: [LINK MAPA]\n- Orientações completas para o dia da
+  prova: [LINK ORIENTAÇÕES]\n\n💬 PRECISA DE AJUDA?\n- WhatsApp da Cent
+ ral do Aluno: [NÚMERO]\n- E-mail: [E-MAIL]\n- Atendimento: [HORÁRIO DE A
+ TENDIMENTO]\n\n📅 ETAPA ANTERIOR\nQuestionário do Estudante – prazo 0
+ 9/10/2026. Já preencheu? Ele também é obrigatório.\n\n—\nSync ENADE 
+ | Datas conforme cronograma oficial do Inep.\nAtualizado em 06/10/2026. Se
+  o Inep alterar alguma data\, este evento é atualizado automaticamente.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:0
+COLOR:red
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ENADE 2026: a prova é daqui a 7 dias (11/10/2026)
+TRIGGER:-P7D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ENADE 2026: a prova é amanhã. Portões abrem às 08:00 e fech
+ am às 09:00
+TRIGGER:-PT13H
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:ENADE 2026: a prova é hoje. Portões abrem às 08:00 e fecham 
+ às 09:00
+TRIGGER:-PT2H
 END:VALARM
 END:VEVENT
 END:VCALENDAR
