@@ -46,6 +46,20 @@ main {
   margin: 0 auto 10px;
 }
 
+.brand {
+  display: inline-flex;
+  margin: 0 0 22px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  background: var(--white);
+}
+
+.brand img {
+  display: block;
+  width: 150px;
+  height: auto;
+}
+
 .eyebrow {
   display: inline-flex;
   width: fit-content;
@@ -110,10 +124,44 @@ button:focus {
   background: rgba(91, 219, 158, 0.12);
 }
 
+.label {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.note {
+  padding-left: 12px;
+  border-left: 3px solid var(--green);
+  color: var(--muted);
+  font-size: 15px;
+}
+
 .manual {
   margin-bottom: 10px;
   color: var(--muted);
   font-size: 14px;
+}
+
+.text-button,
+.text-button:hover,
+.text-button:focus {
+  display: inline;
+  width: auto;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  background: none;
+  transform: none;
+}
+
+.text-button:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
 }
 
 .status {
@@ -121,17 +169,6 @@ button:focus {
   margin-bottom: 0;
   color: var(--green);
   font-size: 14px;
-}
-
-code {
-  display: block;
-  margin-top: 6px;
-  padding: 10px;
-  overflow-wrap: anywhere;
-  border: 1px solid rgba(91, 219, 158, 0.22);
-  border-radius: 6px;
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.06);
 }
 
 @media (max-width: 520px) {

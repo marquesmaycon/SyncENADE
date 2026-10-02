@@ -3,56 +3,61 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sync ENADE</title>
+    <title>Sync ENADE | Unicive</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <img class="logo" src="assets/ideaton-logo.svg" alt="Logo Ideaton InovaDay">
     <main>
+      <div class="brand">
+        <img src="assets/LOGOMARCA-UNICIVE.webp" alt="Unicive">
+      </div>
       <h1>Sync ENADE</h1>
-      <p class="intro">Assine o calendário pelo link público e confira se o evento aparece no calendário do usuário.</p>
+      <p class="intro">Todas as datas do ENADE no seu calendário, sempre atualizadas.</p>
 
-      <section class="actions" aria-label="Ações de calendário">
-        <a id="apple-link" href="syncenade-prototipo.ics" target="_blank" rel="noopener">
+      <p class="label" id="actions-label">Escolha seu calendário:</p>
+      <section class="actions" aria-labelledby="actions-label">
+        <a id="apple-link" href="calendario-enade.ics" target="_blank" rel="noopener">
           Apple Calendar
         </a>
-        <a id="google-direct-link" href="https://calendar.google.com/calendar/render?cid=syncenade-prototipo.ics" target="_blank" rel="noopener">
+        <a id="google-direct-link" href="https://calendar.google.com/calendar/render?cid=calendario-enade.ics" target="_blank" rel="noopener">
           Google Calendar
         </a>
-        <a id="outlook-link" href="syncenade-prototipo.ics" target="_blank" rel="noopener">
+        <a id="outlook-link" href="calendario-enade.ics" target="_blank" rel="noopener">
           Outlook
         </a>
-        <button type="button" id="copy-link">
-          Copiar URL do calendário
-        </button>
       </section>
 
+      <p class="note">
+        Os eventos são atualizados automaticamente. Depois de assinar, você não precisa fazer mais nada.
+      </p>
+
       <p class="manual">
-        <code id="calendar-url">syncenade-prototipo.ics</code>
+        Prefere adicionar manualmente?
+        <button type="button" id="copy-link" class="text-button">Copiar link</button>
       </p>
 
       <p class="status" id="copy-status" aria-live="polite"></p>
     </main>
 
     <script>
-      const feedUrl = new URL("syncenade-prototipo.ics", window.location.href).href;
+      const feedUrl = new URL("calendario-enade.ics", window.location.href).href;
       const webcalUrl = feedUrl.replace(/^https?:\/\//, "webcal://");
       const googleDirectUrl =
         "https://calendar.google.com/calendar/render?cid=" + encodeURIComponent(webcalUrl);
 
-      document.getElementById("calendar-url").textContent = feedUrl;
       document.getElementById("apple-link").href = webcalUrl;
       document.getElementById("google-direct-link").href = googleDirectUrl;
       document.getElementById("outlook-link").href =
         "https://outlook.live.com/calendar/0/addcalendar?url=" + encodeURIComponent(feedUrl);
 
       document.getElementById("copy-link").addEventListener("click", async () => {
+        const status = document.getElementById("copy-status");
         try {
           await navigator.clipboard.writeText(feedUrl);
-          document.getElementById("copy-status").textContent = "URL copiada.";
+          status.textContent = "Link copiado! Cole no seu aplicativo de calendário.";
         } catch {
-          document.getElementById("copy-status").textContent =
-            "Copie a URL exibida acima.";
+          status.textContent = "Copie este link e cole no seu aplicativo de calendário: " + feedUrl;
         }
       });
     </script>

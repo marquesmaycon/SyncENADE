@@ -1,7 +1,7 @@
 {
   "headers": [
     {
-      "source": "/syncenade-prototipo.ics",
+      "source": "/calendario-enade.ics",
       "headers": [
         {
           "key": "Content-Type",
