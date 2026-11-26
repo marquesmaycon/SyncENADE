@@ -44,8 +44,12 @@
     <script>
       const feedUrl = new URL("calendario-enade.ics", window.location.href).href;
       const webcalUrl = feedUrl.replace(/^https?:\/\//, "webcal://");
+      // Versão fixa do feed para o Google: uma URL nova faz o Google baixar o arquivo
+      // de novo em vez de usar o cache. Não altere, senão quem já assinou recebe uma agenda duplicada.
+      const googleFeedVersion = "demo1";
       const googleDirectUrl =
-        "https://calendar.google.com/calendar/render?cid=" + encodeURIComponent(webcalUrl);
+        "https://calendar.google.com/calendar/render?cid=" +
+        encodeURIComponent(webcalUrl + "?v=" + googleFeedVersion);
 
       document.getElementById("apple-link").href = webcalUrl;
       document.getElementById("google-direct-link").href = googleDirectUrl;
