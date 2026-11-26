@@ -112,4 +112,30 @@ DESCRIPTION:ENADE 2026: a prova é hoje. Portões abrem às 08:00 e fecham
 TRIGGER:-PT2H
 END:VALARM
 END:VEVENT
+BEGIN:VEVENT
+UID:demo-sabado-2026@syncenade
+DTSTAMP:20261126T224500Z
+DTSTART;TZID=America/Sao_Paulo:20261128T100000
+DTEND;TZID=America/Sao_Paulo:20261128T110000
+SUMMARY:🧪 Sync ENADE – Evento de demonstração
+URL:https://enade.inep.gov.br
+DESCRIPTION:Evento de demonstração do Sync ENADE.\n\nSe este evento apare
+ ceu no seu calendário\, a assinatura está funcionando: a instituição e
+ dita um arquivo e as datas chegam sozinhas aqui.\n\n✅ CHECKLIST\n☐ Abr
+ ir este evento e ver as orientações\n☐ Conferir se o lembrete chegou\n
+ \n—\nSync ENADE | Evento de teste para a apresentação de 27/11/2026.
+STATUS:CONFIRMED
+TRANSP:OPAQUE
+SEQUENCE:0
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Sync ENADE: amanhã às 10:00 tem o evento de demonstração
+TRIGGER:-P1D
+END:VALARM
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Sync ENADE: o evento de demonstração começa em 2 horas
+TRIGGER:-PT2H
+END:VALARM
+END:VEVENT
 END:VCALENDAR
